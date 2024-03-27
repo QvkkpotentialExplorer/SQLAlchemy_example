@@ -11,8 +11,3 @@ class Users(SqlAlchemyBase):
     hashed_password = sqlalchemy.Column(sqlalchemy.Text)
     is_admin = sqlalchemy.Column(sqlalchemy.Boolean)
 
-    def set_password(self, password):
-        self.hashed_password = generate_password_hash(password)
-
-    def check_password(self, password):
-        return check_password_hash(self.hashed_password, password)
